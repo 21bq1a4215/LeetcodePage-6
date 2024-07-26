@@ -1,0 +1,20 @@
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        s=s.strip()
+        ans=0
+        flag = False
+        if s.startswith("-"):
+            flag=True
+            s=s[1:]
+        elif s.startswith("+") :s=s[1::]
+        elif "." in s:s=s[:s.index(".")]
+        for i in s:
+            if i.isdigit():ans=ans*10+ord(i)-48
+            else:break
+        if  flag :ans=-ans
+        if ans>2**31-1:return 2**31-1
+        elif ans<-2**31:return -2**31            
+        else:return ans
+            
+        
+      
