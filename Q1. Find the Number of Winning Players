@@ -1,0 +1,11 @@
+class Solution:
+    from collections import Counter
+    def winningPlayerCount(self, n: int, pick: List[List[int]]) -> int:
+        count=0
+        s=[]
+        for k in pick:
+            if pick.count(k)>k[0]:
+                if k[0] not in s:
+                    count+=1
+                    s.append(k[0])
+        return count
